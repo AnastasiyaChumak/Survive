@@ -1,0 +1,87 @@
+.mySpace {
+	padding-top: 20px;
+}
+
+.head {
+	font-size: 15px;
+}
+
+.allhead {
+	background-color: rgba(0, 0, 0, .55);
+
+	 
+}
+
+ 
+
+.but {
+	
+}
+
+.mai {
+	display: inline-block;
+	padding-top: 0.324219rem;
+	padding-bottom: 0.324219rem;
+	margin-right: 1rem;
+	line-height: inherit;
+	white-space: nowrap;
+	font-size: 25px;
+	color: white;
+}
+
+.mai:hover {
+	color: aqua;
+	text-decoration: none;
+}
+
+.asw {
+	margin: 10px;
+	font-size: 20px;
+}
+
+.quest {
+	padding: 40px;
+	margin: 20px;
+	font-size: 20px;
+}
+
+.radios {
+	margin-top: 20px;
+}
+
+.form-check {
+	padding: 20px;
+}
+
+.about {
+	text-align: center;
+}
+
+.foot {
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	height: 30px;
+	width: 100%;
+}
+
+.bat {
+	padding: 20px;
+}
+
+.block1 {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: white;
+	text-shadow: 1px 2px 2px black, 0 0 2em black;
+}
+
+.block2 {
+	text-align: center;
+	text-shadow: 1px 2px 2px black, 0 0 2em black;
+	margin-top: 40px;
+}
+
