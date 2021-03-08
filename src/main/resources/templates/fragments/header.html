@@ -3,9 +3,9 @@
 
 <header th:fragment="header" class="allhead">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<a class="mai" href="/">Survive here!</a>
+		<a class="mai" href="/" >Survive here!</a>
 
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
+		<button  class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarColor02" aria-controls="navbarColor02"
 			aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -21,12 +21,14 @@
 					<li class="nav-item" sec:authorize="isAnonymous()"><a
 						class="nav-link" href="/login">Log in</a></li>
 					<li class="nav-item" sec:authorize="hasRole('USER')"><a
-						class="nav-link" href="/test">Test</a></li>
+						class="nav-link" href="/aboutTest">Test</a></li>
 					<li class="nav-item" sec:authorize="hasRole('USER')"><a
 						class="nav-link" href="/photos">Photos</a></li>
-						<li class="nav-item" sec:authorize="hasRole('USER')"><a
-						class="nav-link" href="/book">Books</a></li>
+					<li class="nav-item" sec:authorize="hasRole('USER')"><a
+						class="nav-link" href="/bookList">Books</a></li>
 					<li class="nav-item" sec:authorize="hasRole('ADMIN')"><a
+						class="nav-link" href="/book">Add books</a></li>
+					<li class="nav-item" sec:authorize="hasRole('USER')"><a
 						class="nav-link" href="/users">Users</a></li>
 					<li class="nav-item" sec:authorize="hasRole('USER')"><a
 						class="nav-link" href="/account">My Account</a></li>
@@ -34,7 +36,8 @@
 						class="nav-link" href="/about">About</a></li>
 				</ul>
 				<div class="but">
-					<form class="form-inline my-2 my-lg-0" th:action="@{/logout}" sec:authorize="isAuthenticated()">
+					<form class="form-inline my-2 my-lg-0" th:action="@{/logout}"
+						sec:authorize="isAuthenticated()">
 						<input class="form-control mr-sm-2" type="hidden" />
 						<button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
 					</form>

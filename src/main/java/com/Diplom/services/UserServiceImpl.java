@@ -1,39 +1,18 @@
 package com.Diplom.services;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
 
 import javax.transaction.Transactional;
 import javax.validation.ValidationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.authentication.InternalAuthenticationServiceException;
-import org.springframework.security.authentication.event.AuthenticationSuccessEvent;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.oauth2.client.oidc.userinfo.OidcUserRequest;
-import org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService;
-import org.springframework.security.oauth2.common.exceptions.InvalidTokenException;
-import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
-import org.springframework.security.oauth2.core.oidc.user.OidcUser;
-import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Service;
 
-import com.Diplom.dto.UserDto;
-import com.Diplom.entity.Answer;
 import com.Diplom.entity.Role;
 import com.Diplom.entity.User;
-import com.Diplom.repositories.AnswerRepository;
 import com.Diplom.repositories.UserRepository;
 
 @Service
@@ -62,17 +41,15 @@ public class UserServiceImpl implements UserService {
 	public boolean isUserPresent(String email) {
 		return false;
 	}
-
-	/*
-	 * public void createAdmin(User user) { BCryptPasswordEncoder encoder = new
-	 * BCryptPasswordEncoder();
-	 * user.setPassword(encoder.encode(user.getPassword()));
-	 * user.setRole(Role.ADMIN); userRepository.save(user); }
-	 */
-
+	
 	@Override
 	public User findByName(String name) {
 		return userRepository.findByName(name);
+	}
+
+	@Override
+	public List<User> findByNameSearch(String name) {
+		return userRepository.findByNameLike("%" + name + "%");
 	}
 
 	@Override
@@ -97,7 +74,7 @@ public class UserServiceImpl implements UserService {
 		newUser.setName((String) attributes.get("given_name"));
 		newUser.setEmail((String) attributes.get("email"));
 		newUser.setPassword("1111");
-		newUser.setRole(Role.USER);
+		newUser.setRole(Role.ADMIN);
 		newUser.setResult(0);
 		return userRepository.save(newUser);
 
@@ -107,6 +84,5 @@ public class UserServiceImpl implements UserService {
 	public Optional<User> findUserByEmail(String string) {
 		return userRepository.findByEmail(string);
 	}
-	
 
 }

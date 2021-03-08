@@ -8,11 +8,7 @@
 
 .allhead {
 	background-color: rgba(0, 0, 0, .55);
-
-	 
 }
-
- 
 
 .but {
 	
@@ -35,13 +31,12 @@
 }
 
 .asw {
-	margin: 10px;
+	margin: 10px 10px 10px 0px;
 	font-size: 20px;
 }
 
 .quest {
-	padding: 40px;
-	margin: 20px;
+	padding: 30px 80px 0px 80px;
 	font-size: 20px;
 }
 
@@ -85,3 +80,18 @@
 	margin-top: 40px;
 }
 
+hr {
+	font-size: 3px;
+}
+
+b{
+	font-size: 18px;
+}
+
+.aboutTest {
+	text-align: center;
+	margin: 30px;
+	padding-left: 300px;
+	padding-right: 300px;
+	font-family: serif;
+} 

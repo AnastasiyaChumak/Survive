@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Diplom.entity.Answer;
-import com.Diplom.entity.LogUser;
+import com.Diplom.entity.LogUser;	
 import com.Diplom.entity.Question;
 import com.Diplom.entity.User;
 import com.Diplom.services.AnswerService;
@@ -37,7 +37,8 @@ public class TestController {
 	int result = 0;
 
 	@GetMapping("/test")
-	public String listoOfUsers(Model model, @RequestParam("answerId") Optional<String> answerId) {
+	public String listOfQuestion(Model model, @RequestParam("answerId") Optional<String> answerId) {
+	//	List<Question> list = questionService.findByWeather("rain");
 		List<Question> list = questionService.findAll();
 		LogUser us = logService.findById(1);
 		User user = userService.findByEmail(us.getEmail());
@@ -47,19 +48,21 @@ public class TestController {
 			Answer answer = answerService.findById(answerId.get()).orElse(new Answer());
 			boolean isTrue = answer.isTrue();
 			if (isTrue) {
-				result += 10;
+				result += 20;
 			}
 			Question nextQuestion = answer.getNextQuestion();
 			Set<Answer> nextAnswers = nextQuestion.getAnswers();
 			model.addAttribute("question", nextQuestion);
 			model.addAttribute("answers", nextAnswers);
+
 			if (nextQuestion.getId() == 1) {
 				user.setResult(result);
+				result = 0;
 				userService.saveUser(user);
 				if (user.getResult() > 40) {
 					return "views/testSuccess";
 				} else if (user.getResult() < 40) {
-					return "views/testSuccess40";
+					return "views/testSuccess";
 				}
 			}
 			return "views/test :: #replacingContent";

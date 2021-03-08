@@ -35,10 +35,6 @@ public class User {
 
 	}
 	
-	public boolean isAdmin () {
-	    return (this.getRole().equals(Role.ADMIN));
-	  }
-
 	public Role getRole() {
 		return role;
 	}

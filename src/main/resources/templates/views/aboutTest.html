@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security5"
+	layout:decorate="~{fragments/main_layout}">
+<head>
+<title>PreTest</title>
+</head>
+<body
+	style="background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);">
+	<div layout:fragment="content" class="aboutTest">
+		<h3>Here you can check your knowledge about wildlife, wild
+			animals and natural. It will be useful, if you used to go hiking.</h3>
+		<h4 style="padding-top: 50px;">Are you want pass the test?</h4>
+		<span><h5 style="padding-top: 30px">
+				<a href="/test"><b>Yes</b></a></span> or <span><a href="/index">No</a></span>
+		</h5>
+	</div>
+</body>
+</html>

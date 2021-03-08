@@ -1,38 +1,23 @@
 package com.Diplom.controllers;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Diplom.dto.BookDto;
-import com.Diplom.entity.Book;
 import com.Diplom.services.BookService;
 
 @Controller
 public class BookController {
-
+	
 	@Autowired
 	private BookService service;
 
-	@GetMapping("/book")
-	public String registerForm(Model model) {
-
-		model.addAttribute("book", new BookDto());
-		return "views/book";
-	}
-
-	@PostMapping("/book")
-	public String registerUser(@Valid BookDto book, BindingResult bindingResult, Model model) {
-		Book newBook = new Book();
-		newBook.setDescription(book.getDescription());
-		newBook.setTopic(book.getTopic());
-		newBook.setLink(book.getLink());
-		service.createBook(newBook);
-		return "views/index";
+	@GetMapping("/bookList")
+	public String bookList(Model model, @RequestParam(defaultValue = "") String topic) {
+		model.addAttribute("book", service.findByTopicSearch(topic));
+		return "views/bookList";
 	}
 }

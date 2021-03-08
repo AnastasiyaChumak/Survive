@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/main_layout}">
 <head>
 <title>Index Page</title>
 </head>
@@ -7,9 +9,9 @@
 	<div layout:fragment="content" class="container mySpace">
 		<div class="alert alert-success">Test finish success! You can
 			see your result in your account</div>
+			<form th:action="@{/testSuccess}">
+				<div th:text="${result.text}" th:value=${result.res}></div>
+				</form>
 	</div>
-
-	<div>Hello! efwfwefweffewwfefwefweffwefwe</div>
-
 </body>
 </html>

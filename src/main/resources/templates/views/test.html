@@ -10,23 +10,23 @@
 	src="js/buttonClick.js"></script>
 </head>
 
-<body>
+<body style="background: linear-gradient(0.25turn, #ADFF2F, #ebf8e1, #7FFFD4);">
 	<div layout:fragment="content">
 		<div id="replacingContent">
 			<div class="quest">
-				<div class="card">
-					<span th:text="${question.text}"></span>
+				<div class="card" style="padding: 30px; background:rgba(140, 240, 235, 0.24);">
+					<span th:text="${question.text}" th:value=${question.id} style="padding-bottom: 20px"></span>
+
+					<form th:action="@{/test}" class="asw">
+						<th:block th:each="answer:${answers}">
+							<input type="radio" name="answers" th:value=${answer.id}
+								th:text=${answer.text} class="asw">
+							<br>
+						</th:block>
+
+					</form>
 				</div>
 			</div>
-			<form th:action="@{/test}" class="asw">
-				<th:block th:each="answer:${answers}">
-					<input type="radio" name="answers" th:value=${answer.id}
-						th:text=${answer.text} class="asw">
-					<br>
-				</th:block>
-
-			</form>
-
 		</div>
 	</div>
 

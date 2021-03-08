@@ -17,6 +17,8 @@ public class Question {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String text;
+	private String weather;
+	private String enviroment;
 	
  	@OneToMany
 	@JoinColumn(name = "question_id")
@@ -28,6 +30,30 @@ public class Question {
 
 	public Set<Answer> getAnswers() {
 		return answers;
+	}
+	
+	public String getWeather() {
+		return weather;
+	}
+
+	public void setWeather(String weather) {
+		this.weather = weather;
+	}
+
+	public String getEnviroment() {
+		return enviroment;
+	}
+
+	public void setEnviroment(String enviroment) {
+		this.enviroment = enviroment;
+	}
+
+	public Question getNextQuestion() {
+		return nextQuestion;
+	}
+
+	public void setNextQuestion(Question nextQuestion) {
+		this.nextQuestion = nextQuestion;
 	}
 
 	public void setAnswers(Set<Answer> answers) {
